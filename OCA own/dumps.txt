@@ -1,0 +1,500 @@
+
+Ques 1--
+public class Test {
+
+	private char var;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		char var1='a';
+		char var2=var1;
+		var2='o';
+		Test obj1=new Test();
+		Test obj2=obj1;
+		obj1.var='i';
+		obj2.var='o';
+		System.out.println(var1+","+var2);
+		System.out.println(obj1.var+","+obj2.var);
+
+	}
+
+}
+Answer-a,o
+		o,o
+
+Ques 3--
+
+class A{
+public void test() {
+	System.out.println("A");
+	
+}		
+}
+class B extends A{
+	public void test() {
+		System.out.println("B");
+	}
+}
+public class Test extends A {
+
+	public void test() {
+		System.out.println("C");
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		A b1=new A();
+		A b2=new Test();
+		b1=(A)b2;
+		A b3=(B)b2;
+		//A b3=(B)b2;
+		b1.test();
+		b3.test();
+
+	}
+
+}
+
+
+Ques 4--
+
+
+class C2{
+	public void displayC2() {
+		System.out.print("C2");
+	}
+}
+interface I{
+	public void displayI();
+}
+
+public class Jaiho extends C2 implements I {
+
+	@Override
+	public void displayI() {
+		System.out.print("C1");
+	}
+
+	public static void main(String args[]) {
+		C2 obj1=new Jaiho();
+		I obj2=new Jaiho();
+//		I obj3=new C2();
+		
+		C2 s=obj2;
+		I t= obj1;
+		t.displayI();
+		s.displayC2();
+	}
+	
+}
+
+
+
+Ques 5---
+
+
+package p1;
+public class Acc {
+
+	int p;
+	private int q;
+	protected int r;
+	public int s;
+}
+
+package p2;
+
+import p1.Acc;
+
+public class Test extends Acc{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			Acc obj=new Test();
+			obj.p;
+			obj.q;
+			obj.r;
+			obj.s;
+	}
+
+}
+
+
+Ques 12---
+import java.util.ArrayList;
+import java.util.List;
+
+class Patient{
+	String name;
+	
+	public Patient(String name) {
+		this.name=name;
+	}
+}
+
+public class Test  {
+
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List ps=new ArrayList();
+		Patient p2=new Patient("Mike");
+		ps.add(p2);
+		
+		
+		
+	//	int f=ps.indexOf(p2);
+	//	int f=ps.indexOf(Patient("Mike"));
+		//int f=ps.indexOf(new Patient("Mike"));
+		
+		Patient p= new Patient("Mike");
+		int f=ps.indexOf(p);
+		System.out.println("index::"+f);
+		if(f>=0) {
+			System.out.println("Mike found");
+			System.out.println("index::"+f);
+		}
+
+	}
+
+}
+Ques 15-
+
+interface Downloadable{
+	public void download();
+}
+interface Readable extends Downloadable{
+	public void readBook();
+}
+abstract class Book implements Readable {
+	public void readBook() {
+		System.out.println("Read Book");
+	}
+}
+public class Test extends Book{
+
+	public void readBook() {
+		System.out.println("Read-E-Book");
+	}
+	@Override
+	public void download() {
+		// TODO Auto-generated method stub
+		
+	}
+	public static void main(String args[]) {
+	Book b1=new Test();
+	b1.readBook();
+	
+	}
+}
+
+Ques 16--
+
+public class Test {
+
+	int x,y;
+	public Test(int x,int y) {
+		initialize(x,y);
+	}
+	public void initialize(int x,int y) {
+		this.x=x*x;
+		this.y=y*y;
+	}
+	
+	
+	public static void main(String args[]) {
+	int x=3,y=5;
+	Test obj=new Test(x,y);
+	System.out.println(x+""+y);
+	
+	}
+}
+
+Ques 17--
+
+class Vehicle {
+	int x;
+	Vehicle(){
+		this(10);
+	}
+	Vehicle(int x){
+		this.x=x;
+	}
+	
+}
+class Car extends Vehicle{
+	int y;
+	Car(){
+		this(20);
+		super();
+		
+	}
+	Car(int y){
+		this.y=y;
+	}
+	public String toString()
+	{
+		return super.x+":"+this.y;
+	}
+}
+
+Ques 19---
+
+
+public class Main {
+
+	public static final int MIN=1;
+	public static void main(String args[]) {
+	int x=args.length;
+	if(checkLimit(x)) {
+		System.out.println("Java SE");
+	}
+	else {
+		System.out.println("Java EE");
+	}
+	
+	}
+	
+	public static boolean checkLimit(int x) {
+		return(x>=MIN)?true:false;
+	}
+}
+
+Ques 20--
+
+public class Test {
+
+	
+	public static void main(String args[]) {
+		
+		String [][] arr= {{"A","B","C"},{"D","E"}};
+		
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				System.out.println("i:"+arr[i].length);
+				System.out.println("j:"+arr[j].length);
+				System.out.println("hmm::"+i+"::"+j);
+				System.out.println("hello:"+arr[i][j]+"");
+				if(arr[i][j].equals("B")) {
+					break;
+				}
+			}
+			continue;
+		}
+	
+	}
+}
+
+Ques 23--
+
+
+class Base{
+	public void hello() {
+		System.out.println("Base:");
+	}
+}
+
+class DerivedA extends Base{
+	public void hello() {
+		System.out.println("Derived A");
+	}
+}
+public class Test extends DerivedA {
+
+	public void hello() {
+		System.out.println("DerivedB");
+	}
+	
+	public static void main(String args[]) {
+		
+		Base b1=new Test();
+		Base b2=new DerivedA();
+		Base b3=new Test();
+		b1=(Base)b3;
+		Base b4=(DerivedA)b3;
+		b1.hello();
+		b4.hello();
+		
+	
+	}
+}
+
+
+Ques 30--
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Student{
+	String name;
+	public Student(String name) {
+		this.name=name;
+	}
+}
+
+public class Test {
+
+	public static void main(String args[]) {
+	
+	Student[] std=new Student[3];
+	std[0]=new Student("Richard");
+	std[1]=new Student("Richard");
+	std[2]=new Student("Richard");
+	
+	for(Student s:std) {
+		System.out.println(""+s.name);
+	}
+	
+	}
+}
+
+Ques 41:
+
+
+public class Test {
+
+	public static void doSum(Integer x,Integer y) {
+		System.out.println("Integer Sum is:"+(x+y));
+	}
+	public static void doSum(double x,double y) {
+		System.out.println("double Sum is:"+(x+y));
+	}
+	public static void doSum(float x,float y) {
+		System.out.println("float Sum is:"+(x+y));
+	}
+	public static void doSum(int x,int y) {
+		System.out.println("int Sum is:"+(x+y));
+	}
+	public static void doSum(short x,short y) {
+		System.out.println("Short Sum is:"+(x+y));
+	}
+	
+	public static void main(String args[]) {
+	
+		doSum(10,20);
+		doSum(10.0,20.0);
+	
+	}
+}
+
+Ques 43:
+import java.util.ArrayList;
+
+public class Test {
+
+	public static void main(String args[]) {
+		ArrayList<Integer> points=new ArrayList<>();
+		points.add(1);
+		points.add(2);
+		points.add(3);
+		points.add(4);
+		points.add(null);
+		points.remove(2);
+	//	points.remove(null);
+		System.out.println(points);
+	}
+}
+
+Ques 44:
+
+import java.util.ArrayList;
+
+public class Test {
+
+	int x;
+	int y;
+	public void doStuff(int x,int y) {
+		System.out.println(":"+this.x+"::"+y);
+		this.x=x;
+		System.out.println(":"+this.x+"::"+y);
+		y=this.y;
+		System.out.println(":"+this.x+"::"+y);
+	}
+	public void display() {
+		System.out.println(x+":"+y+":");
+	}
+	public static void main(String args[]) {
+		Test m1=new Test();
+		m1.x=100;
+		m1.y=200;
+		m1.doStuff(m1.x, m1.y);
+		m1.display();
+		Test m2=new Test();
+		m2.doStuff(m1.x, m1.y);
+		
+		m2.display();
+	}
+}
+
+Ques 45::
+public class Test {
+
+	int a1;
+	int y;
+	public static void doProduct(int a) {
+		a=a*a;
+	}
+	public  void  doString(StringBuilder s) {
+		s.append(""+s);
+		s.append(""+s);
+	}
+	public static void main(String args[]) {
+		Test item=new Test();
+		item.a1=11;
+		StringBuilder sb=new StringBuilder("Hello");
+		Integer i=10;
+		doProduct(i);
+		item.doString(sb);
+		doProduct(item.a1);
+		System.out.println(i+""+sb+""+item.a1);
+	}
+}
+
+Ques 46::
+public class Test {
+
+	
+	public static void main(String args[]) {
+		String ta="A";
+		ta=ta.concat("B");
+		String tb="C";
+		ta=ta.concat(tb);
+		System.out.println();
+		ta.replace('C', 'D');
+		ta=ta.concat(tb);
+		System.out.println(ta);
+	
+	
+	}
+}
+
+
+
+Ques 48::public class Test {
+
+	
+	public static void main(String args[]) {
+		
+		int data[]= {2010,2013,2014,2015,2014};
+		int key=2014;
+		int count=0;
+		for(int e:data) {
+			if(e!=key) {
+				continue;
+				
+			}
+		}
+		System.out.println(count +"found");
+		
+	
+	
+	}
+}
+
+Ques 52::
+
+
+	
+
+
+
+
+
